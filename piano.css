@@ -1,0 +1,140 @@
+.piano-keyboard-container.scroll {
+	overflow-x: auto;
+}
+.piano-keyboard {
+	position: relative;
+	transition:
+	left .2s ease-in,
+	width .2s ease-in-out,
+	margin .2s ease-in-out .05s,
+	height .2s ease-in-out .1s,
+	padding .2s ease-in-out .15s;
+	left: 0rem;
+	overflow: visible;
+ 	width: 346.67%;
+	height: 0;
+	padding-bottom: 15%; /* change this to edit width/height ratio */
+}
+
+.piano-keyboard>div {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+.piano-keyboard button {
+	border: 1px solid #888;
+	color: transparent;
+	padding: .5rem 0;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	outline: none;
+	transition: color 0s ease .2s;
+	overflow: hidden;
+}
+
+.piano-keyboard button[data-note="C4"] {
+	font-weight: bold;
+	font-size: 105%;
+}
+
+.piano-bottom-keys button {
+	border-left-width: .25px;
+	border-right-width: .75px; 
+	height: 100%;
+	text-align: center;
+	background-color: #fdfdfd;
+	flex: 1 0;
+	border-bottom-left-radius: 10% 2%;
+	border-bottom-right-radius: 10% 2%;
+	z-index: 1;
+}
+.piano-bottom-keys button:active {
+	background-color: #fff;
+	z-index: 2;
+	box-shadow: 0px 0px 20px 3px hsl(calc(var(--hue) * 2), 75%, 85%);
+	background-image: linear-gradient(0deg, hsla(calc(var(--hue) * 2), 70%, 50%, 0.6) 0%, hsla(calc(var(--hue) * 2), 70%, 100%, 0.1) 100%);
+
+}
+.letters .piano-bottom-keys button {
+	color: #666;
+}
+
+.piano-top-keys button {
+	border-bottom-left-radius: 15% 3%;
+	border-bottom-right-radius: 15% 3%;
+	border: none;
+	height: 60%;
+	background-color: #212121;
+	position: relative;
+	flex: 1 0;
+}
+.piano-top-keys button:active {
+	background-color: #000;
+	box-shadow: 0px 0px 20px 3px hsl(calc(var(--hue) * 2), 75%, 85%);
+	background-image: linear-gradient(180deg, hsla(calc(var(--hue) * 2), 70%, 50%, 0.8) 0%, hsla(calc(var(--hue) * 2), 70%, 50%, 0.1) 100%);
+}
+
+.letters .piano-top-keys button {
+	color: #aaa;
+}
+
+/* correct spacing https://www.mathpages.com/home/kmath043.htm)
+f=g=a=b=72156 units      c=d=e=74606 units  
+f#=g#=a#=72520 units     c#=d#=74235 units  
+F=G=A=B=126546 units     C=D=E=124096 units 
+*/
+.piano-top-keys button[data-note*="F"],
+.piano-top-keys button[data-note*="G"],
+.piano-top-keys button[data-note*="A"],
+.piano-top-keys button[data-note*="B"] {
+	flex: 72156;
+}
+.piano-top-keys button[data-note*="C"],
+.piano-top-keys button[data-note*="D"],
+.piano-top-keys button[data-note*="E"] {
+	flex: 74606;
+}
+.piano-top-keys button[data-note*="F#"],
+.piano-top-keys button[data-note*="G#"],
+.piano-top-keys button[data-note*="A#"] {
+	flex: 72520;
+}
+.piano-top-keys button[data-note*="C#"],
+.piano-top-keys button[data-note*="D#"] {
+	flex: 74235;
+}
+.piano-bottom-keys button[data-note*="F"],
+.piano-bottom-keys button[data-note*="G"],
+.piano-bottom-keys button[data-note*="A"],
+.piano-bottom-keys button[data-note*="B"] {
+	flex: 126546;
+}
+.piano-bottom-keys button[data-note*="C"],
+.piano-bottom-keys button[data-note*="D"],
+.piano-bottom-keys button[data-note*="E"] {
+	flex: 124096;
+}
+
+.piano-top-keys button:first-child {
+	/* (B+A) - (b+a#)  = (126546+126546) - (72156 + 72520 ) */
+	flex: 108416;
+}
+.piano-top-keys button:last-child {
+	/* C */
+	flex: 124096;
+}
+
+/* unhide correct accidentals keys */
+.piano-top-keys button[data-note*="#"] {
+	z-index: 3;
+}

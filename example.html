@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piano Input - Example</title>
+  <link  rel="stylesheet" href="./piano.css" />
+  <script src="./piano.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    section {
+      background-color: #eee;
+      width: 1000px;
+      padding: 16px;
+      margin:  0 auto;
+      display: flex;
+    }
+    #sidebar {
+      flex: 4 1;
+    }
+    #content {
+      flex: 8 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    textarea {
+      width: 100%;
+    }
+    code {
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div id="sidebar">
+      <ul>
+        <li>lorem</li>
+        <li>ipsum</li>
+      </ul>
+    </ul>
+    </div>
+    <div id="content">
+      <div id="keyboardContainer" class="letters scroll"></div>
+      <textarea id="textarea" rows="10"></textarea>
+    </div>
+  </section>
+  <section>
+    <code>
+      &lt;div id="keyboardContainer" class="letters scroll"&gt;&lt;/div&gt;
+      &lt;textarea id="textarea" rows="10"&gt;&lt;/textarea&gt;
+      &lt;script&gt;
+        const textarea = document.getElementById('textarea')
+        pianoInput('#keyboardContainer', function(data) {
+          console.log('note', data.note, data.midi)
+          textarea.value += note + ' '
+        })
+      &lt;/script&gt;
+    </code>
+  </section>
+  <script>
+    const textarea = document.getElementById('textarea')
+    pianoInput('#keyboardContainer', function({ note, midi }) {
+      console.log('note', note, midi)
+      textarea.value += note + ' '
+    })
+  </script>
+</body>
+</html>
