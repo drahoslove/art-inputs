@@ -25,6 +25,7 @@
 	outline: none;
 	transition: color 0s ease .2s;
 	position: relative;
+	padding: 0;
 }
 
 .piano-keyboard button>div { /* this is only needed because older browsers does not suport display: flex for buttons */
