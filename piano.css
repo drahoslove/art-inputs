@@ -2,43 +2,43 @@
 	overflow-x: auto;
 }
 .piano-keyboard {
-	position: relative;
-	transition:
-	left .2s ease-in,
-	width .2s ease-in-out,
-	margin .2s ease-in-out .05s,
-	height .2s ease-in-out .1s,
-	padding .2s ease-in-out .15s;
-	left: 0rem;
-	overflow: visible;
+	position: relative; 
  	width: 346.67%;
 	height: 0;
 	padding-bottom: 15%; /* change this to edit width/height ratio */
 }
 
-.piano-keyboard>div {
+.piano-keyboard .piano-bottom-keys,
+.piano-keyboard .piano-top-keys {
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
 	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
 	width: 100%;
 }
 
 .piano-keyboard button {
 	border: 1px solid #888;
 	color: transparent;
+	align-items: center;
+	outline: none;
+	transition: color 0s ease .2s;
+	position: relative;
+}
+
+.piano-keyboard button>div { /* this is only needed because older browsers does not suport display: flex for buttons */
 	padding: .5rem 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	flex: 1;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	justify-content: flex-end;
-	align-items: center;
-	outline: none;
-	transition: color 0s ease .2s;
 	overflow: hidden;
 }
 
