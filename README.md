@@ -4,7 +4,7 @@ components allowing inserting piano notes (and more in future) as text into text
 example: https://drahoslove.github.io/art-inputs/example.html
 
 
-```
+```html
 <div id="keyboardContainer" class="letters scroll"></div>
 <textarea id="textarea" rows="10"></textarea>
 <script>
