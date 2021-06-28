@@ -1,7 +1,8 @@
 # art-inputs
 components allowing inserting piano notes (and more in future) as text into textarea
 
-example: https://drahoslove.github.io/art-inputs/example.html
+### demo
+https://drahoslove.github.io/art-inputs/example.html
 
 ### usage
   - link `piano.js` and `piano.css` files to your page
